@@ -5,17 +5,18 @@ import { Observable, throwError } from 'rxjs';
 import { catchError, tap } from 'rxjs/operators';
 
 import * as CategoriesActions from './categories.actions';
-import { CategoriesService } from "../services/categories.service";
-import { SnackBarService } from "../services/snack-bar.service";
+import { CategoriesService } from "../../services/categories.service";
+import { SnackBarService } from "../../services/snack-bar.service";
+import { Category } from "../../interfaces/category.interface";
 
 export interface CategoriesStateModel {
-  categories: any;
+  categories: Category[];
 }
 
 @State<CategoriesStateModel>({
   name: 'categories',
   defaults: {
-    categories: null,
+    categories: [],
   },
 })
 @Injectable()
@@ -26,16 +27,15 @@ export class CategoriesState {
   }
 
   constructor(
-    private deviceInfoService: CategoriesService,
+    private categoriesService: CategoriesService,
     private snackBarService: SnackBarService,
   ) {}
 
   @Action(CategoriesActions.FetchCategories)
   public fetch(ctx: StateContext<CategoriesStateModel>): Observable<any> {
-    return this.deviceInfoService.fetch().pipe(
-      tap((categories: any) => {
+    return this.categoriesService.fetchCategories().pipe(
+      tap((categories: Category[]) => {
         ctx.patchState({ categories });
-        this.snackBarService.success('Succeed getting categories');
       }),
       catchError((error: HttpErrorResponse) => {
         this.snackBarService.fail('Failed getting categories');

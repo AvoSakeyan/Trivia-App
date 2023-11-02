@@ -6,6 +6,7 @@ import { NgxsModule} from "@ngxs/store";
 import { AppComponent } from './app.component';
 import { SharedModule} from "./share/shared.module";
 import * as State from './share/state/index';
+import { AppRoutingModule } from "./app-routing.module";
 
 @NgModule({
   declarations: [
@@ -13,10 +14,12 @@ import * as State from './share/state/index';
   ],
   imports: [
     BrowserModule,
+    AppRoutingModule,
     SharedModule,
     BrowserAnimationsModule,
     NgxsModule.forRoot([
-      State.CategoriesState
+      State.CategoriesState,
+      State.QuestionsState
     ])
   ],
   providers: [],

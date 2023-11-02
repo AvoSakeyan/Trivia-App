@@ -1,0 +1,14 @@
+@import 'styles/_colors.scss';
+
+.main {
+  padding: 20px;
+}
+
+.disable {
+  background-color: #F6F7F8 !important;
+  color: #C4C4C4;
+
+  &:hover {
+    background-color: #F6F7F8 !important;
+  }
+}

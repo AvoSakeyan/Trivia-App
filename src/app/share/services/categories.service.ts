@@ -2,6 +2,8 @@ import { Injectable } from '@angular/core';
 import {map, Observable} from "rxjs";
 import {HttpClient} from "@angular/common/http";
 import {BaseUrls} from "../enums/endpoints.enum";
+import {Category} from "../interfaces/category.interface";
+import {CategoryResponse} from "../interfaces/responses.interface";
 
 @Injectable({
   providedIn: 'root'
@@ -10,7 +12,9 @@ export class CategoriesService {
 
   constructor(private http: HttpClient) { }
 
-  public fetch(): Observable<any> {
-    return this.http.get(BaseUrls.categories);
+  public fetchCategories(): Observable<Category[]> {
+    return this.http.get<CategoryResponse>(BaseUrls.categories).pipe(
+      map(data => data.trivia_categories)
+    );
   }
 }

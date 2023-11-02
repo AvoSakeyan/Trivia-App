@@ -1,0 +1,18 @@
+<div class="ctg-container">
+  <div class="title">Pick a Category</div>
+  <div class="categories">
+    <form [formGroup]="categoryForm">
+      <mat-select class="mat_select" placeholder="Select category" formControlName="patientCategory">
+        <mat-option class="mat_option" *ngFor="let category of categories" [value]="category">
+          {{category.name}}
+        </mat-option>
+      </mat-select>
+    </form>
+  </div>
+  <button
+    [disabled]="!categoryForm.get('patientCategory')?.value"
+    [ngClass]="{'disable': !categoryForm.get('patientCategory')?.value}"
+    class="start-btn bg-success"
+    (click)="getQuestions()"
+  >Start</button>
+</div>
