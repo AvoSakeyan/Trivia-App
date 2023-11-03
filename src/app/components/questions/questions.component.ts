@@ -1,12 +1,14 @@
-import { Component, OnInit } from '@angular/core';
+import {ChangeDetectionStrategy, ChangeDetectorRef, Component, OnInit} from '@angular/core';
 import { Store } from "@ngxs/store";
 import { Router } from "@angular/router";
 
 import { map, takeUntil } from "rxjs";
-import { QuestionsState } from "../../share/state";
+import { QuestionsActions, QuestionsState } from "../../share/state";
 import { Questions } from "../../share/interfaces/questions.interface";
 import { Difficulty } from "../../share/enums/difficulty.enum";
 import { BaseComponent } from "../../share/components/base-component/base.component";
+import { CorrectAnswer } from "../../share/interfaces/correct-answer.interface";
+import { Score } from "../../share/interfaces/score.interface";
 
 @Component({
   selector: 'app-questions',
@@ -20,12 +22,12 @@ export class QuestionsComponent extends BaseComponent implements OnInit{
   public userSelectedAnswer: string | null = null;
   public quizStarted: boolean = false;
   public quizFinished: boolean = false;
-
-  questionTransitionClass = 'question-transition';
+  public correct_answers: CorrectAnswer[] = [];
+  public questionTransitionClass = 'question-transition';
 
   constructor(
     private store: Store,
-    private router: Router
+    private router: Router,
   ) {
     super()
   }
@@ -50,6 +52,10 @@ export class QuestionsComponent extends BaseComponent implements OnInit{
           }
           localStorage.setItem('totalQuestions', data.length.toString())
           this.questions = data.map(item => {
+            this.correct_answers.push({
+              question: item.question,
+              answer: item.correct_answer
+            })
             const combinedAnswers = [item.correct_answer, ...item.incorrect_answers];
             const answers = this.shuffleArray(combinedAnswers)
             return {
@@ -92,7 +98,7 @@ export class QuestionsComponent extends BaseComponent implements OnInit{
     } else {
       console.log('wrong');
     }
-    this.nextQuestion();
+    this.nextQuestion()
   }
 
   nextQuestion() {
@@ -101,6 +107,12 @@ export class QuestionsComponent extends BaseComponent implements OnInit{
       this.userSelectedAnswer = null;
     } else {
       // Quiz finished
+      const score: Score = {
+        correctAnswer: this.correct_answers,
+        currentAnswerCount: localStorage.getItem('correctAnswerCount') || '',
+        date: new Date().toLocaleString(),
+      }
+      this.store.dispatch(new QuestionsActions.SetScore(score))
       this.quizFinished = true;
       this.router.navigate(['results']);
     }

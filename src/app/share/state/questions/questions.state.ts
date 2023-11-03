@@ -44,4 +44,9 @@ export class QuestionsState {
       })
     );
   }
+
+  @Action(CategoriesActions.SetScore)
+  public setScore(ctx: StateContext<QuestionsStateModel>,  { score }: CategoriesActions.SetScore) {
+    return this.questionsService.setScore(score);
+  }
 }
