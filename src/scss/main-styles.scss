@@ -6,9 +6,32 @@
 
 .disable {
   background-color: #F6F7F8 !important;
-  color: #C4C4C4;
+  color: #C4C4C4 !important;
 
   &:hover {
     background-color: #F6F7F8 !important;
   }
 }
+
+.border-highlight-2 {
+  border: 2px solid #95B6A9 !important;
+}
+
+.cdk-overlay-pane {
+  position: absolute;
+  margin-top: 24px;
+  margin-left: -16px;
+  border-radius: 18px;
+  background-color: #F6F7F8;
+  width: 320px !important;
+}
+
+.cdk-overlay-pane:not(.mat-mdc-select-panel-above) div.mat-mdc-select-panel{
+  box-shadow: none;
+  overflow: hidden;
+  padding: 4px 0 20px;
+  box-sizing: unset;
+  width: 320px;
+  position: relative;
+}
+

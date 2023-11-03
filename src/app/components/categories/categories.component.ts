@@ -1,4 +1,4 @@
-import { ChangeDetectionStrategy, Component, Input, OnInit} from '@angular/core';
+import {ChangeDetectionStrategy, Component, Input, OnInit, ViewChild} from '@angular/core';
 import { FormBuilder, FormGroup  } from "@angular/forms";
 import { Router } from "@angular/router";
 import { Store } from "@ngxs/store";
@@ -15,6 +15,7 @@ import { QuestionsActions } from "../../share/state";
 export class CategoriesComponent implements OnInit{
   @Input() categories?: Category[] | null;
   public categoryForm: FormGroup;
+  public isOptionListOpen: boolean = false;
 
   constructor(
     private fb: FormBuilder,
@@ -26,6 +27,14 @@ export class CategoriesComponent implements OnInit{
   }
 
   ngOnInit() {}
+
+  onOptionListOpened() {
+    this.isOptionListOpen = true;
+  }
+
+  onOptionListClosed() {
+    this.isOptionListOpen = false;
+  }
 
   getQuestions() {
     const id = this.categoryForm.get('patientCategory')?.value?.id

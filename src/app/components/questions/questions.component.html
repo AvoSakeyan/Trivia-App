@@ -1,21 +1,19 @@
-<div *ngIf="quizStarted && !quizFinished">
-  <div class="questions-container">
-    <div class="question-number">Question {{ (currentQuestionIndex  + 1) | number:'2.0-0' }}</div>
+<div class="questions-container" *ngIf="quizStarted && !quizFinished"  [ngClass]="questionTransitionClass">
+  <div class="question-number">Question {{ (currentQuestionIndex  + 1) | number:'2.0-0' }}</div>
+  <div
+    class="difficulty-level"
+    [ngClass]="{
+    'bg-success':questions[currentQuestionIndex]?.difficulty === difficulty.easy,
+    'bg-warning': questions[currentQuestionIndex]?.difficulty === difficulty.medium,
+    'bg-danger': questions[currentQuestionIndex]?.difficulty === difficulty.hard
+  }"
+  >{{questions[currentQuestionIndex]?.difficulty}}</div>
+  <div class="main-question">{{questions[currentQuestionIndex]?.question}}</div>
+  <div class="answers">
     <div
-      class="difficulty-level"
-      [ngClass]="{
-      'bg-success':questions[currentQuestionIndex]?.difficulty === difficulty.easy,
-      'bg-warning': questions[currentQuestionIndex]?.difficulty === difficulty.medium,
-      'bg-danger': questions[currentQuestionIndex]?.difficulty === difficulty.hard
-    }"
-    >{{questions[currentQuestionIndex]?.difficulty}}</div>
-    <div class="main-question">{{questions[currentQuestionIndex]?.question}}</div>
-    <div class="answers">
-      <div
-        class="choice"
-        *ngFor="let answer of questions[currentQuestionIndex]?.answers"
-        (click)="selectAnswer(answer)"
-        >{{answer}}</div>
-    </div>
+      class="choice"
+      *ngFor="let answer of questions[currentQuestionIndex]?.answers"
+      (click)="selectAnswer(answer)"
+      >{{answer}}</div>
   </div>
 </div>

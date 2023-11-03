@@ -2,5 +2,5 @@
 
 @import 'scss/main-styles.scss';
 
-html, body { height: 100%; }
+html, body { height: 100%; background: #EFF2F7 }
 body { margin: 0; font-family: Barlow, "Helvetica Neue", sans-serif; }

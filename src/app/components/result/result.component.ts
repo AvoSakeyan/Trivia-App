@@ -8,7 +8,8 @@ import { Router } from "@angular/router";
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class ResultComponent {
-  public correctAnswer = localStorage.getItem('correctAnswerCount')
+  public correctAnswers = localStorage.getItem('correctAnswerCount')
+  public totalQuestions = localStorage.getItem('totalQuestions')
 
   constructor(private router: Router) {
   }
@@ -16,5 +17,6 @@ export class ResultComponent {
   backToHome() {
     this.router.navigate(['']);
     localStorage.setItem('correctAnswerCount', '');
+    localStorage.setItem('totalQuestions', '')
   }
 }

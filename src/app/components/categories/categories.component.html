@@ -1,8 +1,13 @@
 <div class="ctg-container">
   <div class="title">Pick a Category</div>
-  <div class="categories">
+  <div class="categories" [ngClass]="{'border-highlight-2': isOptionListOpen}">
     <form [formGroup]="categoryForm">
-      <mat-select class="mat_select" placeholder="Select category" formControlName="patientCategory">
+      <mat-select
+        class="mat_select"
+        placeholder="Select category"
+        formControlName="patientCategory"
+        (opened)="onOptionListOpened()"
+        (closed)="onOptionListClosed()">
         <mat-option class="mat_option" *ngFor="let category of categories" [value]="category">
           {{category.name}}
         </mat-option>
