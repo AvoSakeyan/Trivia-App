@@ -11,6 +11,7 @@ import { MatSelectModule } from "@angular/material/select";
 import { MatInputModule} from "@angular/material/input";
 import { FormsModule, ReactiveFormsModule} from '@angular/forms';
 import { MatDialogModule } from "@angular/material/dialog";
+import { CorrectAnswersModalComponent } from './correct-answers-modal/correct-answers-modal.component';
 
 const routes: Routes = [
   {
@@ -23,6 +24,7 @@ const routes: Routes = [
   declarations: [
     DashboardComponent,
     CategoriesComponent,
+    CorrectAnswersModalComponent,
   ],
   imports: [
     SharedModule,

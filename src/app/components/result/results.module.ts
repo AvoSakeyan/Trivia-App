@@ -1,6 +1,7 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { RouterModule, Routes } from "@angular/router";
+
 import { ResultComponent } from "./result.component";
 
 const routes: Routes = [
@@ -9,7 +10,6 @@ const routes: Routes = [
     component: ResultComponent,
   }
 ];
-
 
 @NgModule({
   declarations: [

@@ -1,0 +1,10 @@
+<div class="ca-container">
+  <div *ngFor="let data of data; let index = index" class="ca-wrapper">
+    <div class="number">{{index + 1}}</div>
+    <div class="qa-wrapper">
+      <div class="question">{{data.question}}</div>
+      <div class="answer">{{data.answer}}</div>
+    </div>
+
+  </div>
+</div>

@@ -1,4 +1,4 @@
 export interface CorrectAnswer {
- question: string,
+  question: string,
   answer: string,
 }

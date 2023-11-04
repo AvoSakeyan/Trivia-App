@@ -1,9 +1,10 @@
 import { Injectable } from '@angular/core';
-import {map, Observable} from "rxjs";
-import {HttpClient} from "@angular/common/http";
-import {BaseUrls} from "../enums/endpoints.enum";
-import {Category} from "../interfaces/category.interface";
-import {CategoryResponse} from "../interfaces/responses.interface";
+import { HttpClient } from "@angular/common/http";
+import { map, Observable } from "rxjs";
+
+import { BaseUrls } from "../enums/endpoints.enum";
+import { Category } from "../interfaces/category.interface";
+import { CategoryResponse } from "../interfaces/responses.interface";
 
 @Injectable({
   providedIn: 'root'

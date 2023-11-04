@@ -1,0 +1,25 @@
+.ca-container {
+   padding: 20px;
+
+  .ca-wrapper {
+    display: flex;
+    align-items: center;
+    margin-bottom: 10px;
+    gap: 20px;
+
+    .qa-wrapper {
+      display: flex;
+     justify-content: space-between;
+      gap: 20px;
+      width: 100%;
+    }
+
+    .question, .answer, .number {
+      color: white;
+      font-weight: 500;
+      border-radius: 5px;
+      background-color: #3A7859;
+      padding: 10px;
+    }
+  }
+}

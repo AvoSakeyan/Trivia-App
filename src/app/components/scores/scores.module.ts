@@ -1,8 +1,10 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { RouterModule, Routes } from "@angular/router";
-import { ScoresComponent } from "../scores/scores.component";
 import { MatIconModule } from "@angular/material/icon";
+
+import { ScoresComponent } from "./scores.component";
+import {MatDialogModule} from "@angular/material/dialog";
 
 const routes: Routes = [
   {
@@ -19,6 +21,7 @@ const routes: Routes = [
     CommonModule,
     RouterModule.forChild(routes),
     MatIconModule,
+    MatDialogModule
   ]
 })
 export class ScoresModule { }

@@ -29,11 +29,15 @@
 
 .cdk-overlay-pane:not(.mat-mdc-select-panel-above) div.mat-mdc-select-panel{
   box-shadow: none;
-  overflow: hidden;
+  overflow: auto;
   padding: 4px 0 20px;
   box-sizing: unset;
   width: 320px;
   position: relative;
+
+  &::-webkit-scrollbar {
+    width: 0;
+  }
 }
 
 .cdk-global-overlay-wrapper {
@@ -45,4 +49,21 @@
   left: 0;
   right: 0;
   bottom: 0;
+}
+
+.mdc-dialog__container {
+  max-height: 700px !important;
+  height: 100%;
+  width: 900px !important;
+  position: relative;
+  right: 250px;
+  bottom: 100px;
+  border-radius: 18px;
+}
+
+.mat-mdc-dialog-container .mdc-dialog__surface {
+  overflow: auto;
+  &::-webkit-scrollbar {
+    width: 0;
+  }
 }

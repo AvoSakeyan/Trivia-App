@@ -1,5 +1,5 @@
 import { Category } from "./category.interface";
-import {Questions} from "./questions.interface";
+import { Questions } from "./questions.interface";
 
 export interface CategoryResponse {
   trivia_categories: Category[];
