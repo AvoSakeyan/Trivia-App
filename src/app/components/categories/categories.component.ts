@@ -5,6 +5,7 @@ import { Store } from "@ngxs/store";
 
 import { Category } from "../../share/interfaces/category.interface";
 import { QuestionsActions } from "../../share/state";
+import { MatDialog } from "@angular/material/dialog";
 
 @Component({
   selector: 'app-categories',
@@ -20,6 +21,7 @@ export class CategoriesComponent implements OnInit{
   constructor(
     private fb: FormBuilder,
     private store: Store,
+    public dialog: MatDialog,
     private router: Router) {
     this.categoryForm = this.fb.group({
       patientCategory: [null]
@@ -41,5 +43,9 @@ export class CategoriesComponent implements OnInit{
     this.store.dispatch(new QuestionsActions.FetchQuestions(id))
 
     this.router.navigate(['questions']);
+  }
+
+  seeResults() {
+    this.router.navigate(['scores'])
   }
 }

@@ -1,0 +1,22 @@
+<div class="scores-container">
+  <button
+    class="pos-left back-home bg-success"
+    (click)="backToHome()"
+  >Back to home</button>
+  <table class="table table-striped">
+    <thead>
+    <tr class="titles">
+      <th *ngFor="let title of titles">{{title}}</th>
+      <th></th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr class="data" *ngFor="let score of scoreList; let index = index">
+      <td>{{ index + 1 }}</td>
+      <td class="date">{{ score.date | date:'yyyy-MM-dd HH:mm:ss'}}</td>
+      <td class="correctCount">{{ score['currentAnswerCount'] }}</td>
+      <td><mat-icon>view_list</mat-icon></td>
+    </tr>
+    </tbody>
+  </table>
+</div>

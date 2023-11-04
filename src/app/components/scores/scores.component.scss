@@ -1,0 +1,52 @@
+.scores-container {
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  margin: 0 100px;
+  top: 100px;
+  bottom: 0;
+  left: 0;
+  right: 0;
+
+  .table {
+
+    tr {
+      border-radius: 10px;
+    }
+    .titles {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 150px;
+      background-color: #6d8181;
+      padding: 10px 20px;
+      color: #FFFFFF;
+      margin-bottom: 10px;
+    }
+    .data {
+      display: flex;
+      justify-content: space-between;
+      background-color: #cce0e0;
+      color: #FFFFFF;
+      padding: 10px 20px;
+      margin-bottom: 5px;
+
+      .date {
+        position: relative;
+        right: 40px;
+      }
+      .correctCount {
+        position: relative;
+        right: 30px;
+      }
+    }
+  }
+
+  .pos-left {
+    position: relative;
+    right: 310px;
+    margin-bottom: 20px;
+  }
+}

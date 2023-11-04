@@ -19,4 +19,8 @@ export class ResultComponent {
     localStorage.setItem('correctAnswerCount', '');
     localStorage.setItem('totalQuestions', '')
   }
+
+  seeResults() {
+    this.router.navigate(['scores'])
+  }
 }

@@ -4,14 +4,17 @@ import { NgxsModule} from "@ngxs/store";
 import { DashboardComponent } from "./dashboard/dashboard.component";
 import { SharedModule } from "../share/shared.module";
 import { RouterModule, Routes } from "@angular/router";
-import {DecimalPipe, NgClass, NgForOf, NgIf} from "@angular/common";
+import { DatePipe, DecimalPipe, NgClass, NgForOf, NgIf} from "@angular/common";
 import { CategoriesComponent } from './categories/categories.component';
 import { MatFormFieldModule } from "@angular/material/form-field";
 import { MatSelectModule } from "@angular/material/select";
-import {MatInputModule} from "@angular/material/input";
-import {FormsModule, ReactiveFormsModule} from '@angular/forms';
+import { MatInputModule} from "@angular/material/input";
+import { FormsModule, ReactiveFormsModule} from '@angular/forms';
 import { QuestionsComponent } from './questions/questions.component';
 import { ResultComponent } from './result/result.component';
+import { MatDialogModule } from "@angular/material/dialog";
+import { ScoresComponent } from "./scores/scores.component";
+import { MatIconModule } from "@angular/material/icon";
 
 const routes: Routes = [
   {
@@ -26,10 +29,20 @@ const routes: Routes = [
     path: 'results',
     component: ResultComponent,
   },
+  {
+    path: 'scores',
+    component: ScoresComponent,
+  },
 ];
 
 @NgModule({
-  declarations: [DashboardComponent, CategoriesComponent, QuestionsComponent, ResultComponent],
+  declarations: [
+    DashboardComponent,
+    CategoriesComponent,
+    QuestionsComponent,
+    ResultComponent,
+    ScoresComponent
+  ],
   imports: [
     SharedModule,
     NgxsModule,
@@ -43,6 +56,9 @@ const routes: Routes = [
     NgClass,
     NgIf,
     DecimalPipe,
+    MatDialogModule,
+    MatIconModule,
+    DatePipe,
   ],
 })
 export class ComponentsModule { }

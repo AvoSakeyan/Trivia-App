@@ -1,4 +1,5 @@
 @import 'styles/_colors.scss';
+@import 'styles/_buttons.scss';
 
 .main {
   padding: 20px;
@@ -35,3 +36,13 @@
   position: relative;
 }
 
+.cdk-global-overlay-wrapper {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+}

@@ -1,0 +1,31 @@
+.back-home {
+  padding: 16px 0 18px 0;
+  border-radius: 18px;
+  width: 150px;
+  color: #ffffff;
+  font-size: 18px;
+  font-weight: 700;
+  border: 1px solid transparent;
+
+  &:hover {
+    background-color: #2D6A4C;
+    transition: background-color 0.3s ease-in
+  }
+}
+
+.results-btn {
+  padding: 16px 20px 18px;
+  border-radius: 18px;
+  width: 150px;
+  color: #FFFFFF;
+  background-color: #797979;
+  font-size: 18px;
+  font-weight: 700;
+  border: 1px solid transparent;
+  margin-top: 20px;
+
+  &:hover {
+    background-color: #606060;
+    transition: background-color 0.3s ease-in
+  }
+}
